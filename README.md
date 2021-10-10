@@ -1,5 +1,7 @@
 # UCI-MSWE
-Assignments/Projects in the Master of Software Engineering Program at UCI
+You can view my assignments/projects that I developed in the Master of Software Engineering Program at UCI.
+
+Introduction:
 
 - 👋 Hello! I am a Master of Software Engineering graduate student at UC Irvine (Class of 2022). I will be expanding my projects and assignments further, once I gather more information during my studies, so stay tuned!
  
