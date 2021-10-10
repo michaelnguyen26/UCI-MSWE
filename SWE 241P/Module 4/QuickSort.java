@@ -1,4 +1,4 @@
-//Credit: https://www.programiz.com/dsa/quick-sort
+//Reference: https://www.programiz.com/dsa/quick-sort
 
 import java.util.ArrayList;
 
