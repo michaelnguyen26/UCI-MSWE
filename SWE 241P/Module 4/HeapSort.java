@@ -1,4 +1,4 @@
-//Credit: https://www.programiz.com/dsa/heap-sort
+//Reference: https://www.programiz.com/dsa/heap-sort
   
 import java.util.ArrayList;
 
