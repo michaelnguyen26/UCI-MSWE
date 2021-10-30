@@ -1,5 +1,6 @@
 /*
  * @author Crista Lopes
+   @edited for concurrency by Michael Nguyen
  * Simple word frequency program
  */
 import java.io.IOException;
