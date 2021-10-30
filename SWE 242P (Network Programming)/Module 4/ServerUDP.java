@@ -60,11 +60,11 @@ public class ServerUDP{
                         if(msgRequest.equals("index")){
                             int count = 0;
                             try (DirectoryStream<Path> textFiles = Files.newDirectoryStream(directory, "*.txt")){    //get a directory stream of all the files ending in .txt
-                                for (Path txt: textFiles){     //for each text file in the directory stream, print them out
+                                for (Path txt: textFiles){     
                                     data = "\n" + txt.getFileName().toString();  //store text file name in variable "data" as a string, append a \n in the beginning so the list of files are readable
                                     buffer = data.getBytes();     //break down and convert data to a byte[]
-                                    DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); //pack data for client
-                                    serverSocket.send(sendToClient);   //send data to client
+                                    DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); 
+                                    serverSocket.send(sendToClient);   
                                     count += 1;
                                 }
                                 String stop = "EOF"; //append "EOF" to the buffer to indicate end of file reading
@@ -88,12 +88,11 @@ public class ServerUDP{
                             if(!(Files.exists(txtDirectory))){ // error handling: check if file exists
                                 String response = "err";
                                 buffer = response.getBytes();
-                                DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); //send data to client
+                                DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); 
                                 serverSocket.send(sendToClient);
                                 continue;
                             }
                             
-                            //write "ok" to the buffer
                             String ok = "\nok\n";
                             buffer = ok.getBytes();
                             DatagramPacket sendOk = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); //send data to client
@@ -106,13 +105,13 @@ public class ServerUDP{
                                 String line = reader.nextLine(); //read line from textfile
                                 buffer = line.getBytes(); //break down and convert data to bytes to send as a packet
                                 
-                                DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); //send data to client
+                                DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); 
                                 serverSocket.send(sendToClient); //send data to client  
                                 count += 1;
                             }
                             String line = "EOF"; //append "EOF" to the buffer to indicate end of file reading
                             buffer = line.getBytes(); //convert "EOF" to bytes to send as a packet
-                            DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); //pack data for client
+                            DatagramPacket sendToClient = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); 
                             serverSocket.send(sendToClient); //send data to client
                             
                             String rel = String.valueOf("\nTotal Line Count on Server: " + count); //keep track of files sent
@@ -120,8 +119,8 @@ public class ServerUDP{
                             DatagramPacket sendRel = new DatagramPacket(buffer, buffer.length, sendToClientAddress, sendToClientPort); 
                             serverSocket.send(sendRel);
 
-                            reader.close(); //close reader after "get" is called
-                            serverSocket.close(); //close server after "get" is called    
+                            reader.close(); 
+                            serverSocket.close();    
                         }
                     }
                 }catch(SocketException e){   //catch error for creating socket
@@ -145,7 +144,6 @@ public class ServerUDP{
             return;
         }
 
-        //COPY THIS DIRECTORY ----> C:\Users\nguye\Desktop\UC Irvine (Graduate)\SWE 242P\Module 4\ServerData
         Path directoryPath = Paths.get(args[0]);
         // System.out.println(directoryPath);
 
