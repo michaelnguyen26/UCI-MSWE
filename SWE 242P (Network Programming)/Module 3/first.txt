@@ -1,0 +1,3 @@
+Hi, this is the first text file!
+I have multiple lines.
+Have a great day!

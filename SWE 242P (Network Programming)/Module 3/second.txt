@@ -1,0 +1,3 @@
+Hi, this is the second text file!
+I have multiple lines too!
+Have a great day!

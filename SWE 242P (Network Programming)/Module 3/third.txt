@@ -1,0 +1,3 @@
+Hi, this is the third text file!
+I am the last text file with multiple lines!
+Have a great day!
