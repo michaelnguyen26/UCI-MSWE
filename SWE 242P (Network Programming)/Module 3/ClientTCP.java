@@ -26,25 +26,25 @@ public class ClientTCP {
 
                 if(sendToServer.equals("index")){
                     writeToServer.println(sendToServer); //use println since readline only sees \r\n
-                    String line = readFromServer.readLine(); //read what the server says
+                    String line = readFromServer.readLine(); 
                     while(!(line.equals("EOF"))){     //while the server sends data and does not reach EOF
-                        System.out.println(line);       //print what the server sends
-                        line = readFromServer.readLine();    //read the next output from the server
+                        System.out.println(line);       
+                        line = readFromServer.readLine();    
                     }
                     System.out.println("\nDone\n");
                 }else if(sendToServer.contains("get ")){ //check if input contains get and " "
                     writeToServer.println(sendToServer);
 
                     if(readFromServer.readLine().equals("err")){ //read "err" if file does not exist
-                        System.out.println(readFromServer.readLine()); //print no such file and continue the loop
+                        System.out.println(readFromServer.readLine()); 
                         continue;
                     }else{
-                        System.out.println(readFromServer.readLine()); //read "ok"
+                        System.out.println(readFromServer.readLine()); 
                     }
 
                     String data = readFromServer.readLine();
                     while(data != null){     //while the server sends data
-                        System.out.println(data);     //print what the server sends
+                        System.out.println(data);     
                         data = readFromServer.readLine();    //read the next output from the server
                     }
                     writeToServer.close();
