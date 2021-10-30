@@ -29,11 +29,11 @@ public class ServerTCP {
                     public void run(){
                         try{
                             ServerSocket server = new ServerSocket(PORT);   //create a server from the ServerSocket class that listens on port 21
-                            System.out.println("\nServer listening for a client request on Port " + server.getLocalPort() + "...");   //print local port server is listening on
+                            System.out.println("\nServer listening for a client request on Port " + server.getLocalPort() + "...");   
                             
                             //This socket is used to receive data and write data TO the client from this SERVER socket
-                            Socket socketConnection = server.accept();  //when client connects to the server, accept the connection 
-                            System.out.println("Client connected to server!");   //connected to the client
+                            Socket socketConnection = server.accept(); 
+                            System.out.println("Client connected to server!");   
                             
                             //Create a reader and writer object for the SERVER to receive requests from the client and write to the client
                             BufferedReader readFromClient = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));   //read from client through server socket
@@ -42,9 +42,9 @@ public class ServerTCP {
                             while(true){            
                                 String clientMessage = readFromClient.readLine();    //read from client input stream
                     
-                                if(clientMessage.equals("index")){     //if client writes index then print the text files
+                                if(clientMessage.equals("index")){     
                                     try (DirectoryStream<Path> textFiles = Files.newDirectoryStream(directory, "*.txt")){    //get a directory stream of all the files ending in .txt
-                                        for (Path txt: textFiles){     //for each text file in the directory stream, print them out
+                                        for (Path txt: textFiles){     
                                             writeToClient.println("\n" + txt.getFileName().toString());     //write text files name as a string to the client
                                         }
                                         writeToClient.println("EOF"); //write EOF to the client when done looping through the files to indicate completion
@@ -52,8 +52,8 @@ public class ServerTCP {
                                         System.out.println(e);
                                     }
                                 }else if(clientMessage.contains("get ")){   //check if input contains get and " "
-                                    String textFile = clientMessage.split(" ")[1];   //split at the text file given in the client request
-                                    Path txtDirectory = Paths.get(directory + "/" + textFile); //attach directory with file
+                                    String textFile = clientMessage.split(" ")[1];   
+                                    Path txtDirectory = Paths.get(directory + "/" + textFile); /
 
                                     // System.out.println(txtDirectory.toString()); --> test to see if directory appends correctly
                                     
@@ -74,6 +74,7 @@ public class ServerTCP {
                                     // for(String listOfData: Files.readAllLines(txtDirectory)){ //Files.readAllLines reads all lines from a file, when paired with for-each it will read each line one by one 
                                     //     writeToClient.println(listOfData);
                                     // } 
+                                           
                                     writeToClient.println("\nServer Response: Thank you, server disconnected!"); //dont need to call sysout in client since this will be in the input stream from the for loop
                                     reader.close();            
                                     writeToClient.close();
@@ -101,7 +102,6 @@ public class ServerTCP {
             return;
         }
 
-        //COPY THIS DIRECTORY ----> C:\Users\nguye\Desktop\UC Irvine (Graduate)\SWE 242P\Module 3\ServerData
         Path directoryPath = Paths.get(args[0]); //args already provides a single quote (") at the beginning. Use quotes for args with spaces
         // System.out.println(directoryPath);
 
