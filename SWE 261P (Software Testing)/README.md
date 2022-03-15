@@ -1,6 +1,6 @@
 # Introduction
 
-This course exposed and taught me how to conduct a variety of software testing techniques. This includes functional testing, white box testing, combinatorial testing, Junit, mocking, TDD/BDD, continuous integration, testable design, and static analysis
+This course exposed and taught me how to conduct a variety of software testing techniques. This includes functional testing, white box testing, combinatorial testing, Junit, mocking, TDD/BDD, continuous integration, testable design, and static analysis.
 
 # Goal: 
 
