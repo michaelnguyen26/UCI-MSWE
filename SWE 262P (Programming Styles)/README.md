@@ -6,4 +6,4 @@ The purpose of the course is expose and gain knowledge with a variety of approac
 
 ### Goal:
 
-The goal of every assignment is to counte the frequency of the top 25 words in the Pride and Prejudice text provided using different programming styles.
+The goal of every assignment is to count the frequency of the top 25 words in the Pride and Prejudice text provided using different programming styles.
